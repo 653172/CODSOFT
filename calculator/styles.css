@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 350px;
+}
+
+.display {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: right;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.previous-operand {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    min-height: 24px;
+}
+
+.current-operand {
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    transition: transform 0.1s;
+}
+
+.btn-clear {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.btn-clear:hover {
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ffa726, #ff9800);
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.btn-operator {
+    background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+}
+
+.btn-operator:hover {
+    background: linear-gradient(135deg, #29b6f6, #0288d1);
+}
+
+.btn-equals {
+    background: linear-gradient(135deg, #66bb6a, #4caf50);
+    grid-row: span 2;
+}
+
+.btn-equals:hover {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+
+@media (max-width: 480px) {
+    .calculator {
+        padding: 16px;
+        border-radius: 20px;
+    }
+    
+    .display {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .current-operand {
+        font-size: 32px;
+    }
+    
+    .btn {
+        padding: 16px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+}
+
+
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.btn:active {
+    animation: buttonPress 0.1s ease-in-out;
+}
+
+
+.display * {
+    transition: all 0.3s ease;
+} 
